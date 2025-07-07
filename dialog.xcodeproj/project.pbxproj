@@ -190,7 +190,7 @@
 		CC21905C2A7BD7D300269525 /* AppVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVariables.swift; sourceTree = "<group>"; };
 		CC21905E2A7BD7F200269525 /* CommandLineArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLineArguments.swift; sourceTree = "<group>"; };
 		CC2190622A7DCA1A00269525 /* preinstall */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = preinstall; sourceTree = "<group>"; };
-		CC72EB9F2E1BE43400CF0DA1 /* dialogcli */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dialogcli; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC72EB9F2E1BE43400CF0DA1 /* dialog */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dialog; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC72EBA12E1BE43400CF0DA1 /* dialogcli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dialogcli.swift; sourceTree = "<group>"; };
 		CC7D43CE2B972976004B9E65 /* PresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationView.swift; sourceTree = "<group>"; };
 		CC7D44072B9C6FB5004B9E65 /* ImageFader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFader.swift; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 				4154C2DA25F76BDB00A3D373 /* Dialog.app */,
 				4154C2EC25F76BDC00A3D373 /* dialogTests.xctest */,
 				4154C2F725F76BDC00A3D373 /* dialogUITests.xctest */,
-				CC72EB9F2E1BE43400CF0DA1 /* dialogcli */,
+				CC72EB9F2E1BE43400CF0DA1 /* dialog */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -577,9 +577,9 @@
 			productReference = 4154C2F725F76BDC00A3D373 /* dialogUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		CC72EB9E2E1BE43400CF0DA1 /* dialogcli */ = {
+		CC72EB9E2E1BE43400CF0DA1 /* dialog */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CC72EBA52E1BE43400CF0DA1 /* Build configuration list for PBXNativeTarget "dialogcli" */;
+			buildConfigurationList = CC72EBA52E1BE43400CF0DA1 /* Build configuration list for PBXNativeTarget "dialog" */;
 			buildPhases = (
 				CC72EB9B2E1BE43400CF0DA1 /* Sources */,
 				CC72EB9C2E1BE43400CF0DA1 /* Frameworks */,
@@ -589,12 +589,12 @@
 			);
 			dependencies = (
 			);
-			name = dialogcli;
+			name = dialog;
 			packageProductDependencies = (
 				CC72EBA72E1BE48800CF0DA1 /* ArgumentParser */,
 			);
 			productName = dialogcli;
-			productReference = CC72EB9F2E1BE43400CF0DA1 /* dialogcli */;
+			productReference = CC72EB9F2E1BE43400CF0DA1 /* dialog */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -652,7 +652,7 @@
 				4154C2D925F76BDB00A3D373 /* Dialog */,
 				4154C2EB25F76BDC00A3D373 /* dialogTests */,
 				4154C2F625F76BDC00A3D373 /* dialogUITests */,
-				CC72EB9E2E1BE43400CF0DA1 /* dialogcli */,
+				CC72EB9E2E1BE43400CF0DA1 /* dialog */,
 			);
 		};
 /* End PBXProject section */
@@ -1178,7 +1178,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CC72EBA52E1BE43400CF0DA1 /* Build configuration list for PBXNativeTarget "dialogcli" */ = {
+		CC72EBA52E1BE43400CF0DA1 /* Build configuration list for PBXNativeTarget "dialog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CC72EBA32E1BE43400CF0DA1 /* Debug */,
