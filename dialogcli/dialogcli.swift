@@ -64,6 +64,8 @@ struct DialogLauncher: ParsableCommand {
             throw ExitCode(1)
         }
 
+        let reorderedArgs = reorderArguments(passthroughArgs)
+
         // Run as root if necessary, otherwise directly run the binary
         if getuid() == 0 {
             // Check if the command file is readable by the user
@@ -73,13 +75,13 @@ struct DialogLauncher: ParsableCommand {
             }
 
             // Run as the specified user
-            let result = runAsUser(uid: userUID, user: user, binary: dialogBinary, args: passthroughArgs)
+            let result = runAsUser(uid: userUID, user: user, binary: dialogBinary, args: reorderedArgs)
             print(result.stdout)
             fputs(result.stderr, stderr)
             throw ExitCode(result.status)
         } else {
             // Run directly as the current user
-            let result = runCommand(binary: dialogBinary, args: passthroughArgs)
+            let result = runCommand(binary: dialogBinary, args: reorderedArgs)
             print(result.stdout)
             fputs(result.stderr, stderr)
             throw ExitCode(result.status)
@@ -154,6 +156,34 @@ struct DialogLauncher: ParsableCommand {
             stderrHandle.readabilityHandler = nil
             return CommandResult(status: 255, stdout: "", stderr: "Failed to run process: \(error)")
         }
+    }
+
+    // Reorder arguments such that flags without parameters go to the end
+    // Needed to get around weird swiftui bug when compiled on macos 15+ and xcode 16+
+    func reorderArguments(_ args: [String]) -> [String] {
+        var reordered: [String] = []
+        var flagsWithoutParams: [String] = []
+        var index = 0
+
+        while index < args.count {
+            let arg = args[index]
+            if arg.starts(with: "--") || arg.starts(with: "-") {
+                if index + 1 >= args.count || args[index + 1].starts(with: "--") || args[index + 1].starts(with: "-") {
+                    flagsWithoutParams.append(arg)
+                    index += 1
+                } else {
+                    reordered.append(arg)
+                    reordered.append(args[index + 1])
+                    index += 2
+                }
+            } else {
+                reordered.append(arg)
+                index += 1
+            }
+        }
+
+        reordered.append(contentsOf: flagsWithoutParams)
+        return reordered
     }
 
     // Function to check if a user can read a specific file
