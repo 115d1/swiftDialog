@@ -33,7 +33,7 @@ class FileReader {
     var dataAvailable: NSObjectProtocol?
     var dataReady: NSObjectProtocol?
 
-    init(observedData: DialogUpdatableContent, fileURL: URL) {
+    init(observedData: DialogUpdatableContent = .shared, fileURL: URL) {
         self.observedData = observedData
         self.fileURL = fileURL
     }
@@ -595,7 +595,9 @@ class FileReader {
     }
 }
 
-class DialogUpdatableContent: ObservableObject {
+final class DialogUpdatableContent: ObservableObject {
+
+    static let shared = DialogUpdatableContent()
 
     // set up some defaults
 
