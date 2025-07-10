@@ -159,26 +159,40 @@ struct TextEntryView: View {
                                     }
                                 } else {
                                     VStack {
-                                        TextField(textfieldContent[index].prompt, text: $textfieldContent[index].value)
-                                            .onChange(of: textfieldContent[index].value, perform: { textContent in
-                                                userInputState.textFields[index].value = textContent
-                                                if textfieldContent[index].regex != "" && observedData.args.textFieldLiveValidation.present {
-                                                    if checkRegexPattern(regexPattern: textfieldContent[index].regex, textToValidate: textfieldContent[index].value) {
-                                                        textfieldContent[index].backgroundColour = Color.green
-                                                    } else {
-                                                        textfieldContent[index].backgroundColour = Color.red
-                                                    }
-                                                    if textfieldContent[index].value == "" {
-                                                        textfieldContent[index].backgroundColour = Color.clear
-                                                    }
+                                        TextField(textfieldContent[index].prompt,
+                                                  text: $textfieldContent[index].value,
+                                                  onEditingChanged: { _ in
+                                            let current = textfieldContent[index].value
+                                            userInputState.textFields[index].value = current
+                                            
+                                            if textfieldContent[index].regex != "" && observedData.args.textFieldLiveValidation.present {
+                                                if checkRegexPattern(regexPattern: textfieldContent[index].regex, textToValidate: textfieldContent[index].value) {
+                                                    textfieldContent[index].backgroundColour = Color.green
+                                                } else {
+                                                    textfieldContent[index].backgroundColour = Color.red
                                                 }
-                                            })
-                                        //.background(textfieldContent[index].backgroundColour)
+                                                if textfieldContent[index].value == "" {
+                                                    textfieldContent[index].backgroundColour = Color.clear
+                                                }
+                                            }
+                                        },
+                                                  onCommit: {
+                                            let finalText = textfieldContent[index].value
+                                            userInputState.textFields[index].value = finalText
+                                        })
+                                        //     .background(textfieldContent[index].backgroundColour)
+                                        
                                         if textfieldContent[index].confirm {
-                                            TextField(textfieldContent[index].prompt, text: $textfieldContent[index].validationValue)
-                                                .onChange(of: textfieldContent[index].validationValue, perform: { textContent in
-                                                    userInputState.textFields[index].validationValue = textContent
-                                                })
+                                            TextField(textfieldContent[index].prompt,
+                                                      text: $textfieldContent[index].validationValue,
+                                                      onEditingChanged: { _ in
+                                                userInputState.textFields[index].validationValue =
+                                                textfieldContent[index].validationValue
+                                            },
+                                                      onCommit: {
+                                                let confirmed = textfieldContent[index].validationValue
+                                                userInputState.textFields[index].validationValue = confirmed
+                                            })
                                         }
                                     }
 
