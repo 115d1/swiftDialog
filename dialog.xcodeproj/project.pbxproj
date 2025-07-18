@@ -586,6 +586,7 @@
 				41E4BC9526AEDB130042A0A3 /* XCRemoteSwiftPackageReference "MarkdownUI" */,
 				414CBAE9278913BA00A1A980 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				41A5A6A228E5468100BD3D5E /* XCRemoteSwiftPackageReference "WebViewKit" */,
+				CEDE19622E2A3B64002C6202 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			productRefGroup = 4154C2DB25F76BDB00A3D373 /* Products */;
 			projectDirPath = "";
@@ -1101,6 +1102,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
+			};
+		};
+		CEDE19622E2A3B64002C6202 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
