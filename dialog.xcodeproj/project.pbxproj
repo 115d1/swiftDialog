@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -603,6 +603,7 @@
 				414CBAE9278913BA00A1A980 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				41A5A6A228E5468100BD3D5E /* XCRemoteSwiftPackageReference "WebViewKit" */,
 				CEDE19622E2A3B64002C6202 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+				CE49C5352E2A4178004B49AD /* XCLocalSwiftPackageReference "../../../Desktop/swift-algorithms-main" */,
 			);
 			productRefGroup = 4154C2DB25F76BDB00A3D373 /* Products */;
 			projectDirPath = "";
@@ -1096,6 +1097,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		CE49C5352E2A4178004B49AD /* XCLocalSwiftPackageReference "../../../Desktop/swift-algorithms-main" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../Desktop/swift-algorithms-main";
+		};
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		414CBAE9278913BA00A1A980 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
